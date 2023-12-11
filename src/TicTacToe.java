@@ -91,6 +91,15 @@ public class TicTacToe implements ActionListener{
     }
 
     public void check() {
+        int i = 0;
+        while(buttons[i].getText() != "") {
+            if(i == buttons.length - 1) {
+                draw();
+                break;
+            }
+            i++;
+        }
+
         if((buttons[0].getText() == "X") && (buttons[1].getText() == "X") && (buttons[2].getText() == "X")) {
             xWins(0,1,2);
         }
@@ -162,5 +171,12 @@ public class TicTacToe implements ActionListener{
             buttons[i].setEnabled(false);
         }
         textfield.setText("O wins");
+    }
+
+    public void draw() {
+        for(int i = 0; i < buttons.length; i++) {
+            buttons[i].setEnabled(false);
+        }
+        textfield.setText("Game is a draw");
     }
 }
